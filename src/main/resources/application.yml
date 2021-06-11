@@ -3,4 +3,19 @@ server:
 
 logging:
   level:
-    ru.dfed.apachekafkaproducer: ${LOG_LEVEL:DEBUG}
+    ru.dfed.apachekafkaproducer: INFO
+    org:
+      apache:
+        kafka:
+          clients:
+            NetworkClient: ERROR
+
+
+spring:
+  kafka:
+    producer:
+#      group-id: group_id
+#      auto-offset-reset: earliest
+      bootstrap-servers: localhost:9092
+#      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+#      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
