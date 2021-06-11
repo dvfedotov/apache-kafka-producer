@@ -1,0 +1,6 @@
+server:
+  port: 8086
+
+logging:
+  level:
+    ru.dfed.apachekafkaproducer: ${LOG_LEVEL:DEBUG}
