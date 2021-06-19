@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 
 @Data
-public class Message {
+public class InputMessage {
 
     @JsonProperty("system.dateCreate")
     private String dateCreate;
