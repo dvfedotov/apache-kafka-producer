@@ -12,7 +12,7 @@ import org.springframework.kafka.core.DefaultKafkaProducerFactory;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.kafka.core.ProducerFactory;
 import org.springframework.kafka.support.serializer.JsonSerializer;
-import ru.dfed.apachekafkaproducer.model.Book;
+import ru.dfed.apachekafkaproducer.model.Message;
 
 @Configuration
 public class KafkaConfig {
@@ -21,7 +21,7 @@ public class KafkaConfig {
     private String kafkaHost;
 
     @Bean
-    public ProducerFactory<String, Book> producerFactory() {
+    public ProducerFactory<String, Message> producerFactory() {
         Map<String, Object> config = new HashMap<>();
         config.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, kafkaHost);
         config.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class);

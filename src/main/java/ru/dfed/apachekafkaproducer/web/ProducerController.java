@@ -5,18 +5,18 @@ import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
-import ru.dfed.apachekafkaproducer.model.Book;
+import ru.dfed.apachekafkaproducer.model.Message;
 
 @RestController
 public class ProducerController {
 
-    private static final String TOPIC = "NewTopic";
+    private static final String TOPIC = "zfront_incoming";
     @Autowired
-    KafkaTemplate<String, Book> kafkaTemplate;
+    KafkaTemplate<String, Message> kafkaTemplate;
 
     @PostMapping("/publish")
-    public String publishMessage(@RequestBody Book book) {
-        kafkaTemplate.send(TOPIC, book);
+    public String publishMessage(@RequestBody Message message) {
+        kafkaTemplate.send(TOPIC, message);
         return "Published Successfully!";
     }
 }
